@@ -11,6 +11,20 @@ const showMenu = (toggleId, navId) =>{
 
 showMenu('nav-toggle','nav-menu')
 
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
 
 const navLink = document.querySelectorAll('.nav__link')
 
@@ -88,22 +102,38 @@ const sr = ScrollReveal({
     reset: true
 });
 sr.reveal(`.home__data, .home__img,
-    .decoration__data,
-    .accessory__content,
-    .footer__content`,{
+    .decoration__data, .float, .cart-house,
+    .footer__content, .testimonial-container`,{
     origin: 'top',
     interval: 200
 })
-sr.reveal('.share__img, .send__content',{
+sr.reveal('.send__content, .left',{
     origin: 'left',
 })
-sr.reveal('.share__data, .send__img',{
+sr.reveal('.send__img, .right',{
     origin: 'right',
 })
 
 
 
 alertify.set('notifier','position', 'bottom-right');
- alertify.message('Bienvenidos');
+alertify.message('Bienvenidos');
+
+const suscribe = document.getElementById("suscription")
+
+ 
+
+suscribe.addEventListener('click', () =>{
+    alertify.success("suscripto con exito")
+ })
+
+
+document.querySelector("#show-login").addEventListener("click", function(){
+    document.querySelector(".popup").classList.add("active")
+   
+})
+document.querySelector(".popup .close-btn").addEventListener("click", function(){
+    document.querySelector(".popup").classList.remove("active")
+})
 
 
